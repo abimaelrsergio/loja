@@ -19,10 +19,11 @@ public class CompraController {
 	private CompraService compraService;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public void realizaCompra(@RequestBody CompraDTO compra) {
+	public String realizaCompra(@RequestBody CompraDTO compra) {
 		
 		ResponseEntity<InfoFornecedorDTO> response = compraService.realizaCompra(compra);
 		System.out.println(response.getBody().getEndereco());
+		return response.getBody().getEndereco();
 	}
 
 }
